@@ -8,19 +8,27 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Ball extends Actor
 {
+    private GreenfootImage img_bkup = null;
     int width=20;
     int height= 20;
     public Ball(){
-        setImage("images/ball.png");
+        img_bkup = new GreenfootImage( getImage() );
         getImage().scale( width++,height++ );
     }
     public void act() 
     {
         int x =getX();
         int y =getY();
-        setImage("images/ball.png");
-        getImage().scale( width++,height++ );
+        GreenfootImage img = new GreenfootImage(img_bkup);
+        img.scale( width++,height++ );
+        setImage(img);
         setLocation( x,y+1);
+        
+            if( width >= 1100 ){
+                getWorld().addObject( new BAN(),300,200);
+                getWorld().removeObject( this );
+
+            }
         
     }    
 }

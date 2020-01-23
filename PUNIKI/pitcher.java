@@ -13,24 +13,28 @@ public class pitcher extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int flag_ball = 0;
+    GreenfootImage img1;
+    GreenfootImage img2;
+    public pitcher()
+    {
+        img1 = new GreenfootImage( "images/pitcher1.png");
+        img2 = new GreenfootImage( "images/pitcher2.png");
+        setImage(img1);
+    }
     public void act() 
     {
         if(flag_ball<=0)flag_ball = 50;
         else flag_ball--;
         if(flag_ball>25 && flag_ball<=50){
-            setImage("images/pitcher1.png");
-            getImage().scale( 90, 90 );
+            setImage(img1);
         }
         else if(flag_ball==25){
-            setImage("images/pitcher2.png");
-            getImage().scale( 90, 90 );
+            setImage(img2);
             getWorld().addObject( new Ball(),290,110);
+            Greenfoot.playSound("sounds/rakka.mp3");
         }
         else{
-            setImage("images/pitcher2.png");
-            getImage().scale( 90, 90 );
-        }
-        
-        
+            setImage(img2);
+        }        
     }    
 }
