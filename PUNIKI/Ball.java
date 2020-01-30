@@ -25,9 +25,8 @@ public class Ball extends Actor
         setLocation( x,y+1);
         
             if( width >= 1100 ){
-                getWorld().addObject( new BAN(),300,200);
-                getWorld().removeObject( this );
-
+                World game = new NewWorld();
+                Greenfoot.setWorld( game );
             }
         
     }    

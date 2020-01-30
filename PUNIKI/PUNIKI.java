@@ -14,7 +14,7 @@ public class PUNIKI extends Actor
      */
     GreenfootImage img1;
     GreenfootImage img2;
-    public int flag_swing = 0;
+    static public int flag_swing = 0;
     private boolean flag_tama = false;
     public PUNIKI(){
         img1 = new GreenfootImage( "images/puniki1.png");
@@ -23,6 +23,10 @@ public class PUNIKI extends Actor
         img2.scale( 300, 100 );
         setImage(img1);
         Greenfoot.playSound("sounds/start.mp3");
+        if(flag_swing == 114514){
+          
+        }
+        flag_swing = 0;
     }
 
     public void act() 
